@@ -1,6 +1,6 @@
 create database OPTUS;
 
-use optus;
+use OPTUS;
 
 create table Artista
 (
@@ -31,12 +31,13 @@ create table Album
 	,tituloAlbum varchar (50) not null
 	,dataLancamentoAlbum date not null
 	,localizacaoAlbum varchar (150) not null
-	,qtdMntAlbum int not null
+	,qtdMntAlbum varchar(10) not null
 	,albumAtivoOuNao varchar (5) not null
 );
 
 create table AlbumEstilo
 (
-	idAlbum int foreign key references Album(idAlbum)
+	idAlbumEstilo int primary key identity
+	,idAlbum int foreign key references Album(idAlbum)
 	,idEstilo int foreign key references Estilo (idEstilo)
 );

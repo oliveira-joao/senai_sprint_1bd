@@ -6,9 +6,9 @@ create table Empresa
 (
 	idEmpresa int primary key identity
 	,nomeEmpresa varchar (50) not null
-	,CNPJEmpresa char (14) not null
+	,CNPJEmpresa char (18) not null
 	,enderecoEmpresa varchar (40) not null
-	,telefoneEmpresa varchar (9) not null
+	,telefoneEmpresa varchar (15) not null
 	,siteEmpresa varchar (100) not null
 );
 
@@ -24,7 +24,7 @@ create table Cliente
 (
 	idCliente int primary key identity 
 	,nomeCliente varchar (50) not null
-	,telefoneCliente varchar (9) not null
+	,telefoneCliente varchar (15) not null
 	,emailCliente varchar (50) not null
 );
 
@@ -47,7 +47,8 @@ create table Atendimento
 
 create table ColaboradorAtendimento
 (
-	idColaborador int foreign key references Colaboradores(idColaborador)
+	 idColaboradorAtendimento int primary key identity
+	,idColaborador int foreign key references Colaboradores(idColaborador)
 	,idAtendimento int foreign key references Atendimento (idAtendimento)
 );
 

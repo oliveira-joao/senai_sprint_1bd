@@ -6,7 +6,7 @@ Create table Empresas
 (
 	idEmpresa int primary key identity
 	,nomeEmpresa varchar (100) not null
-	,CNPJ char(14) not null
+	,CNPJ char(18) not null
 	,funcionariosEmpresa varchar (100) not null
 	,enderecoEmpresa varchar (150) not null 
 );
@@ -21,6 +21,7 @@ Create table Marcas
 Create table Modelos
 (
 	idModelo int primary key identity
+	,nomeModelo varchar (50) not null
 	,tipoModelo varchar (100) not null
 	,idMarca int foreign key REFERENCES Marcas(idMarca)
 );
@@ -30,7 +31,8 @@ Create table Veiculos
 	 idVeiculo int primary key identity
 	,idEmpresa int foreign key REFERENCES Empresas(idEmpresa)
 	,idModelo int foreign key REFERENCES Modelos(idModelo)
-	,idMarca int foreign key REFERENCES Marcas(idMarca)
+	,placaVeiculo varchar (7) not null
+	,corVeiculo varchar (20) not null
 );
 
 create table Cliente(
@@ -38,7 +40,7 @@ create table Cliente(
 	,nomeCliente varchar (100) not null
 	,cnhCliente varchar (10) not null
 	,idadeCliente char (2) not null
-	,telefoneCliente varchar (9) not null
+	,telefoneCliente varchar (15) not null
 );
 
 create table Aluguel

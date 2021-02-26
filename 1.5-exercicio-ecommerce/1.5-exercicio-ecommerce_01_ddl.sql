@@ -7,8 +7,8 @@ create table Loja
 	idLoja int primary key identity
 	,nomeLoja varchar (50) not null
 	,enderecoLoja varchar (100) not null
-	,telefoneLoja varchar (9) not null
-	,cnpj char (14) not null
+	,telefoneLoja varchar (15) not null
+	,cnpj char (18) not null
 );
 
 create table Categoria 
@@ -30,16 +30,16 @@ create table Cliente
 	idCliente int primary key identity
 	,nomeCliente varchar (100) not null
 	,RGCliente char (9) not null
-	,telefoneCliente varchar (9) not null
-	,CPFCliente char (11) not null
+	,telefoneCliente varchar (15) not null
+	,CPFCliente char (14) not null
 );
 
 create table Pedido 
 (
 	idPedido int primary key identity
 	,idCliente int foreign key references Cliente(idCliente)
-	,qtdPedido varchar (10) not null
-	,notaFiscal char (9) not null
+	,qtdPedido int not null
+	,notaFiscal char (10) not null
 );
 
 create table Produto
@@ -54,6 +54,7 @@ create table Produto
 
 create table PedidoProduto
 (
-	idPedido int foreign key references Pedido(idPedido)
+	 idPedidoProduto int primary key identity
+	,idPedido int foreign key references Pedido(idPedido)
 	,idProduto int foreign key references Produto(idProduto)
 );

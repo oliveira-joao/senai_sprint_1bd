@@ -1,3 +1,5 @@
+--DDL-
+
 CREATE DATABASE Filmes;
 
 USE Filmes;
@@ -14,4 +16,6 @@ CREATE TABLE Filmes
 	,idGenero int foreign key REFERENCES Generos(idGenero)
 	,tituloFilme varchar (250) not null
 );
+
+
 
